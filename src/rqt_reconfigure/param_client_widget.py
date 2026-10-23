@@ -30,7 +30,7 @@
 
 from python_qt_binding.QtCore import QMargins, QSize, Qt, Signal
 from python_qt_binding.QtGui import QFont, QIcon
-from python_qt_binding.QtWidgets import (QFileDialog, QFormLayout,
+from python_qt_binding.QtWidgets import (QFileDialog,
                                          QHBoxLayout, QLabel,
                                          QPushButton, QVBoxLayout,
                                          QWidget)
@@ -53,6 +53,7 @@ from rqt_reconfigure.param_editors import (BooleanEditor,  # noqa: F401
                                            EditorWidget, IntegerEditor,
                                            StringEditor)
 
+from rqt_reconfigure.param_group_grid import GroupedParamGrid
 from rqt_reconfigure.text_filter import TextFilter
 from rqt_reconfigure.text_filter_widget import TextFilterWidget
 
@@ -118,7 +119,7 @@ class ParamClientWidget(QWidget):
         filter_widget.setLayout(filter_h_layout)
 
         grid_widget = QWidget(self)
-        self.grid = QFormLayout(grid_widget)
+        self.grid = GroupedParamGrid(grid_widget)
         verticalLayout.addWidget(widget_nodeheader)
         verticalLayout.addWidget(filter_widget)
         verticalLayout.addWidget(grid_widget, 1)
